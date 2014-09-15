@@ -7,7 +7,8 @@ logger = logging.getLogger(__name__)
 
 class vpkFile(object):
 	def __init__(self, vpk):
-		self.vpk_files = vpk
+		self._vpk_files = vpk
+		self._vpklist = []
 	def read(self):
 		logger.info('Beginning to extract the VPK files')
 		for vf in self.vpk_files:
