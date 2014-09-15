@@ -73,7 +73,7 @@ class vpkext():
  
     index.close()
  
-print("Extracting...")
+ 
 logger.info('Beginning to extract the VPK files')
 for vf in vpk_files:
 	print(vf.path,"({} bytes)".format(len(vf.preload)+vf.length))
