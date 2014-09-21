@@ -2,7 +2,7 @@ print 'Welcome to DotaBase Alpha.'
 print 'Main menu,'
 print '1. Mana Cost Calculator'
 
-herolist = [i.strip().split() for i in open("heroes.txt").readlines()]
+herolist = [i.split() for i in open("heroes.txt").readlines()]
 def manacalc():
     print 'Here is the list of heroes to choose from'
     print herolist
