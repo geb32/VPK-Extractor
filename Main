@@ -6,15 +6,13 @@ herolist = [i.strip().split() for i in open("heroes.txt").readlines()]
 def manacalc():
     print 'Here is the list of heroes to choose from'
     print herolist
-    while true:
+    while True:
         userInput = raw_input('Select A Hero')
         if userInput in herolist:
             break
         print 'Invalid Hero'
 
 
-print herolist
-    
 
 userinput = raw_input('Select an option ')
 if userinput== "1":
