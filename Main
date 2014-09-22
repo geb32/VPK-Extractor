@@ -1,20 +1,34 @@
 print 'Welcome to DotaBase Alpha.'
 print 'Main menu,'
 print '1. Mana Cost Calculator'
+
 import re
+import os
 
 with open('heroes.txt', 'r') as f:
     herolist = re.split('[^\w_]*', f.read())
 
+
 def manacalc():
     print 'Here is the list of heroes to choose from'
     print herolist
-    while True:
-        userInput = raw_input('Select A Hero ')
-        if userInput in herolist:
-            break
-        print 'Invalid Hero'
+    userSelection = userchoice('What hero would you like to select?','Invalid hero, please reselect your hero')
+    
+    print 'You have selected ' + userSelection
+    userInput = raw_input('Is this the correct hero?')
+    If userInput.lower = 'no':
+        clear = lambda: os.system('cls')
+        clear()
+        manacalc()
+        break
 
+  
+def userchoice(question, check):
+    while True:
+        userInput = raw_input(question)
+        if userInput in herolist:
+            return userInput
+        print check
 
 
 userinput = raw_input('Select an option ')
