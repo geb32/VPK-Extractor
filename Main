@@ -20,9 +20,9 @@ class hero(object):
         self.mana = mana
         self.int = int
         self.str = str
-        self.intgain = Int_Gain
-        self.strgain = Str_Gain
-        self.lvl = level
+        self.intgain = intgain
+        self.strgain = strgain
+        self.lvl = lvl
         self.name = name
         
 heros = {}
@@ -47,15 +47,18 @@ with open('heroes.txt', 'r') as f:
 def manacalc():
     print 'Here is the list of heroes to choose from'
     print herolist
-    userSelection = userchoice('What hero would you like to select?','Invalid hero, please reselect your hero')
+    userSelection = userchoice('What hero would you like to select? ','Invalid hero, please reselect your hero ')
+
     
-    print 'You have selected ' + userSelection
-    userInput = raw_input('Is this the correct hero?')
-    If userInput.lower = 'no':
-        clear = lambda: os.system('cls')
-        clear()
-        manacalc()
+    while True:
+        print 'You have selected ' + userSelection
+        userinput = raw_input('Is this the correct hero? ')
+        if userinput == 'no':
+            userSelection = userchoice('What hero would you like to select? ','Invalid hero, please reselect your hero ')
+            continue
         break
+
+    print heros[userSelection].name 
 
   
 def userchoice(question, check):
