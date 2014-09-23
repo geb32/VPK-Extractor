@@ -1,10 +1,12 @@
-print 'Welcome to DotaBase Alpha.'
-print 'Welcome to DotaBase Alpha.'
+print 'Welcome to DotaBase Alpha 0.11.'
+
 print 'Main menu,'
 print '1. Mana Cost Calculator'
 
 import re
 import os
+import math
+def cls(): print "\n" * 100
 
 class hero(object):
     health = 0
@@ -43,6 +45,14 @@ heros['Zeus'] = hero(511, 260, 20, 19, 2.7, 2.3, 1, 'Zeus')
 with open('heroes.txt', 'r') as f:
     herolist = re.split('[^\w_]*', f.read())
 
+def levelselection():
+    while True:
+        level = raw_input('Select a level between 1 and 25 ')
+        if 1<= int(level) <= 25:
+            
+            return level
+            break
+        print 'invalid level'
 
 def manacalc():
     print 'Here is the list of heroes to choose from'
@@ -54,12 +64,21 @@ def manacalc():
         print 'You have selected ' + userSelection
         userinput = raw_input('Is this the correct hero? ')
         if userinput == 'no':
+            cls()
             userSelection = userchoice('What hero would you like to select? ','Invalid hero, please reselect your hero ')
             continue
         break
 
-    print heros[userSelection].name 
-
+    print heros[userSelection].name + " has been selected"
+    print
+    print heros[userSelection].name + " has these base stats at level 1"
+    print '{} base strength'.format(heros[userSelection].str)
+    print '{} base intelligence'.format(heros[userSelection].int)
+    level = 0
+    levelselection()
+    currentint = (level * float(heros[userSelection].intgain)) + float(heros[userSelection].int)
+    print heros[userSelection].name +  ' has {} intelligence'.format(currentint)
+    
   
 def userchoice(question, check):
     while True:
@@ -75,3 +94,9 @@ while True:
         break
     elif userinput== "1":
         manacalc()
+
+
+
+    
+    
+
