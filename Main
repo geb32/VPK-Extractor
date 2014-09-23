@@ -50,8 +50,7 @@ def levelselection():
         level = raw_input('Select a level between 1 and 25 ')
         if 1<= int(level) <= 25:
             
-            return level
-            break
+            return int(level)
         print 'invalid level'
 
 def manacalc():
@@ -74,11 +73,9 @@ def manacalc():
     print heros[userSelection].name + " has these base stats at level 1"
     print '{} base strength'.format(heros[userSelection].str)
     print '{} base intelligence'.format(heros[userSelection].int)
-    level = 0
-    levelselection()
-    currentint = (level * float(heros[userSelection].intgain)) + float(heros[userSelection].int)
+    level = levelselection()
+    currentint = (level * heros[userSelection].intgain) + heros[userSelection].int
     print heros[userSelection].name +  ' has {} intelligence'.format(currentint)
-    
   
 def userchoice(question, check):
     while True:
@@ -95,8 +92,4 @@ while True:
     elif userinput== "1":
         manacalc()
 
-
-
-    
-    
 
