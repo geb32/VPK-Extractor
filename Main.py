@@ -9,12 +9,12 @@ import math
 def cls(): print "\n" * 100
 
 class spells(object):
-    spllname = ''
+    spellname = ''
     manacost = 0
     cooldown = 0
     
-    def __init__(self, spllname, manacost, cooldown)
-        self.spllname = spllname
+    def __init__(self, spellname, manacost, cooldown):
+        self.spellname = spellname
         self.manacost = manacost
         self.cooldown = cooldown
 
@@ -27,7 +27,7 @@ class hero(object):
     strgain = 0
     lvl = 0
     name = ''
-    def __init__(self, health, mana, int, str, intgain, strgain, lvl, name):
+    def __init__(self, health, mana, int, str, intgain, strgain, lvl, name, spells):
         self.health = health
         self.mana = mana
         self.int = int
@@ -39,18 +39,18 @@ class hero(object):
         self.spell = spells
 heros = {}
 # sort out the spells tonight
-heros['Axe' = hero(625, 234, 18, 25, 1.6, 2.5, 1, 'Axe', [spells('BESERKERS CALL',300, 12), spells('CULLING BLADE', 600, 50)])
-    'Bane': hero(568, 286, 22, 22, 2.1, 2.1, 1, 'Bane'),
-    'Bristleback': = hero(568, 182, 14, 22, 2.8, 2.2, 1, 'Bristleback'), 
-    'Crystal_Maiden': = hero(454, 208, 16, 16, 2.9, 1.7, 1, 'Crystal Maiden') 
-    'Death_Prophet': = hero(511, 260, 20, 19, 3, 2.2, 1, 'Death Prophet') 
-    'Jakiro': = hero(606, 364, 28, 24, 2.8, 2.3, 1, 'Jakiro') 
-    'Lich': = hero(492, 234, 18, 18, 3.25, 1.55, 1, 'Lich') 
-    'Omniknight': = hero(530, 221, 17, 20, 1.8, 2.65, 1, 'Omniknight') 
-    'Riki': = hero(473, 182, 14, 17, 1.3, 2, 1, 'Riki') 
-    'Vengeful_Spirit': = hero(492, 195, 15, 18, 1.75, 2.6, 1, 'Vengeful Spirit') 
-    'Viper': = hero(530, 195, 15, 20, 1.8, 1.9, 1, 'Viper') 
-    'Zeus': = hero(511, 260, 20, 19, 2.7, 2.3, 1, 'Zeus')]
+heros['Axe' : hero(625, 234, 18, 25, 1.6, 2.5, 1, 'Axe', [spells('BESERKERS CALL',110, 10),spells('BATTLE HUNGER', 105, 5),spells('CULLING BLADE', 180, 55)]),
+    'Bane': hero(568, 286, 22, 22, 2.1, 2.1, 1, 'Bane',[spells('ENFEEBLE',125,10), spells('BRAIN SAP',200,14), spells('NIGHTMARE',165,15), spells('FIENDS GRIP',400,100)]),
+    'Bristleback': hero(568, 182, 14, 22, 2.8, 2.2, 1, 'Bristleback',[spells('NASAL GOO',30,2), spells('QUILL SPRAY',35,3)]), 
+    'Crystal_Maiden': hero(454, 208, 16, 16, 2.9, 1.7, 1, 'Crystal Maiden',[spells('CRYSTAL NOVA',160,15), spells('FROSTBITE',150,10), spells('FREEZING FIELD',600,90)])) ,
+    'Death_Prophet': hero(511, 260, 20, 19, 3, 2.2, 1, 'Death Prophet',[spells('CRYPT SWARM',165,8), spells('SILENCE',80,15), spells('EXORCISM',400,135)]) ,
+    'Jakiro': hero(606, 364, 28, 24, 2.8, 2.3, 1, 'Jakiro',[spells('DUAL BREATH',170,10), spells('ICE PATH',90,9), spells('LIQUID FIRE',0,4), spells('MACROPYRE',440,60)])) ,
+    'Lich': hero(492, 234, 18, 18, 3.25, 1.55, 1, 'Lich',[spells('FROST BLAST',190,8), spells('ICE ARMOUR',50,5), spells('SACRIFICE',0,20), spells('CHAIN FROST',500,60)]) ,
+    'Omniknight': hero(530, 221, 17, 20, 1.8, 2.65, 1, 'Omniknight',[spells('PURIFICATION',160,10), spells('REPEL',50,14), spells('GUARDIAN ANGEL',250,150)]) ,
+    'Riki': hero(473, 182, 14, 17, 1.3, 2, 1, 'Riki',[spells('SMOKE SCREEN',90,11), spells('BLINK STRIKE',40,5)]) ,
+    'Vengeful_Spirit': hero(492, 195, 15, 18, 1.75, 2.6, 1, 'Vengeful Spirit',[spells('MAGIC MISSILE',140,10), spells('WAVE OF TERROR',40,15), spells('NETHER SWAP',200,45)])), 
+    'Viper': hero(530, 195, 15, 20, 1.8, 1.9, 1, 'Viper',[spells('POISON ATTACK',20,0), spells('VIPER STRIKE',250,30)])) ,
+    'Zeus': hero(511, 260, 20, 19, 2.7, 2.3, 1, 'Zeus',[spells('ARC LIGHTNING',80,2), spells('LIGHTNING BOLT',135,6), spells('THUNDERGODS WRATH',450,90))]
 
 
 mainmenu()
@@ -106,7 +106,7 @@ def userchoice(question, check):
             return userInput
         print check
 
-def mainmenu()
+def mainmenu():
     while True:
         userinput = raw_input('Select an option ')
         if userinput.lower== "quit" :
@@ -114,4 +114,3 @@ def mainmenu()
         elif userinput== "1":
             manacalc()
         cls()
-
